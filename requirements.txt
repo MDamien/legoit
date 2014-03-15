@@ -1,0 +1,6 @@
+#git+git://github.com/django/django
+Jinja2
+Markdown
+django-extensions
+praw
+django-jinja2

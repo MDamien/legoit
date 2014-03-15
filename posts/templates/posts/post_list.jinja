@@ -1,0 +1,31 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+    {% for post in object_list %}
+        {% if post.is_simple_image_post() %}
+            <div class="post">
+                <h3>{{ post.parent_as_title()|safe }}</h3>
+                {{ post.comment_to_html()|safe }}
+                <div class="post-info">
+                    on <a href="{{ post.get_context_url() }}">{{ post.submission.get('title') }}</a>
+                    </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+{% if paginator.num_pages > 1 %}
+<div class="pagination pagination-lg">
+    {% if page_obj.has_previous() %}
+        <li><a href="?page={{ page_obj.previous_page_number() }}">« Previous page</a></li>
+    {% endif %}
+
+    <li><a>Page {{ page_obj.number }} of {{ paginator.num_pages }}</a></li>
+
+    {% if page_obj.has_next() %}
+        <li><a href="?page={{ page_obj.next_page_number() }}">Next page»</a></li>
+    {% endif %}
+    </span>
+</div>
+{% endif %}
+
+{% endblock %}
