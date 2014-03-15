@@ -3,4 +3,6 @@ Jinja2
 Markdown
 django-extensions
 praw
+django-jinja
 django-jinja2
+pygments
