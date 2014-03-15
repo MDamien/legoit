@@ -27,8 +27,10 @@ And wait, it will take approximately 2min
 
 Have fun, don't hesitate to send me pull requests or file an issue. Here is a few things I need to improve:
 
+* Unit and integration testing, especially for the reddit API calls and the comment parsing
 * Better parsing of the comments (the current one is really naive)
 * Permalinks and sharing links
 * Better admin interface to edit the posts
 * Using it for another user (like ShittyWaterColor or AWildSketchAppereared)
 * Deployement using Heroku
+* Error reporting
