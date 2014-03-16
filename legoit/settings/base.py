@@ -43,7 +43,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
-DEFAULT_JINJA2_TEMPLATE_EXTENSION = '.jinja'
+DEFAULT_JINJA2_TEMPLATE_INTERCEPT_RE = r"^(?!admin/).*"
 
 ROOT_URLCONF = 'legoit.urls'
 

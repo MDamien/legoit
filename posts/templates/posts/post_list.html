@@ -1,9 +1,9 @@
-{% extends "base.jinja" %}
+{% extends "base.html" %}
 
 {% block content %}
     {% for post in object_list %}
         {% if post.is_simple_image_post() %}
-            {% include 'posts/post.jinja' %}
+            {% include 'posts/post.html' %}
         {% endif %}
     {% endfor %}
 
