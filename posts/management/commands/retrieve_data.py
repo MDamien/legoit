@@ -12,7 +12,8 @@ class Command(BaseCommand):
             params={'limit':1000}, as_objects=False)
 
         existing_ids = [post.comment.get('id') for post in Post.objects.all()]
-
+        
+        imported = 0
         for comment_raw in comments.get('data').get('children'):
             comment = comment_raw.get('data')
             comment_id = comment.get('id')
@@ -37,3 +38,5 @@ class Command(BaseCommand):
 
             Post(submission=submission, comment=comment, parent=parent_comment, created=created).save()
 
+            imported +=1
+        print("%d posts imported" % imported)
