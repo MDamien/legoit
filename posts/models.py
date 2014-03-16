@@ -20,11 +20,16 @@ class Post(models.Model):
     def comment_to_html(self):
         return parse_comment(self.comment.get('body'), display_images=True)
 
+    def comment_img_src(self):
+        match = re.search('http://.*\.jpg', self.comment.get('body'))
+        if match:
+            return match.group()
+
     def parent_as_title(self):
         return parse_comment(self.parent.get('body'))
 
     def is_simple_image_post(self):
-        return "i.imgur.com" in self.comment.get('body')
+        return self.comment_img_src() is not None
 
     def get_context_url(self):
         link = self.submission.get('permalink')
