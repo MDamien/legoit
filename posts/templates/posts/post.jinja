@@ -1,0 +1,8 @@
+<div class="post"> 
+    <a href="{{ url('post_detail', pk=post.pk) }}" class="permalink pull-right"><span class="glyphicon glyphicon-link"></span></a>
+    <h3>{{ post.parent_as_title()|safe }}</h3>
+    {{ post.comment_to_html()|safe }}
+    <div class="post-info">
+        on <a href="{{ post.get_context_url() }}">{{ post.submission.get('title') }}</a>
+    </div>
+</div>

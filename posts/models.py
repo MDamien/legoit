@@ -31,7 +31,6 @@ class Post(models.Model):
         comment_id = self.comment.get('id')#.split('_')[1]
         return "http://reddit.com/{}/{}/?context=2".format(link,comment_id)
 
-    #TODO permalink
 
     def __str__(self):
         return "%s -> %s" % (self.parent.get('body'), self.comment.get('body'))

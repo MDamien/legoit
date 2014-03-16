@@ -1,4 +1,4 @@
-#git+git://github.com/django/django
+-e git+git://github.com/django/django@d22b291890c1736a40c0ad97448c7318df2eebb2#egg=django
 Jinja2
 Markdown
 django-extensions
