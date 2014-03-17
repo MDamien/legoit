@@ -27,6 +27,7 @@ And wait, it will take approximately 2min
 
 Have fun, don't hesitate to send me pull requests or file an issue. Here is a few things I need to improve:
 
+* Switch to a master/dev branching and continuous integration developement
 * Unit and integration testing, especially for the reddit API calls and the comment parsing
 * Better parsing of the comments (the current one is really naive)
 * Better admin interface to edit the posts
