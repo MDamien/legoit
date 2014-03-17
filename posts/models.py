@@ -4,12 +4,8 @@ from django_extensions.db.fields import json
 import markdown, re
 
 
-def parse_comment(text, display_images=False):
-    html = markdown.markdown(text, safe_mode='remove')
-    if display_images:
-        html = re.sub(r"(http://i\.imgur\.com/[a-zA-Z0-9]*\.jpg)",
-            r"<img class='inline_image img-thumbmail img-responsive' src='\1' />", html)
-    return html
+def parse_comment(text):
+    return markdown.markdown(text, safe_mode='remove')
 
 class Post(models.Model):
     submission = json.JSONField()
@@ -26,7 +22,10 @@ class Post(models.Model):
             return match.group()
 
     def parent_as_title(self):
-        return parse_comment(self.parent.get('body'))
+        if self.parent.get('body') != self.comment.get('body'):
+            return parse_comment(self.parent.get('body'))
+        else:
+            return self.submission.get('title')
 
     def is_simple_image_post(self):
         return self.comment_img_src() is not None
