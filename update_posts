@@ -1,0 +1,4 @@
+#! /usr/bin/sh
+workon legoit
+source secrets
+python legoit/manage.py retrieve_data
